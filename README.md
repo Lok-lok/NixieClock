@@ -1,5 +1,5 @@
 # Nixie Clock
-![][/img/nixie_clock.png]
+![](/img/nixie_clock.png)
 ## English
 A nixie clock inspired by the divergence meter in Steins;Gate, an anime with quite a lot of old school electronics serving as critical objects to the plots. Nixie clocks also appeared in other creations, but few people use them for actual purpose nowadays. They requires power supply with high voltage, as well as relatively more space for a single digit. However, people tend to define objects which do not think about these vacuum tubes with their own feelings. They just look pretty cool. :)
 
@@ -10,8 +10,8 @@ Other modules used include a real time clock module, which provides the time for
 The execution provides several modes of display, including current time, current date, flush (prevention of cathode poisoning), divergence of world line (a definition from Steins;Gate), temperature, location, et cetera.
 
 This repo includes the source files, and a schematic diagram of the digital circuit of the display module. External header files used:
-* [DS3231.h] (http://www.rinkydinkelectronics.com/library.php?id=73 "Rinky Dink Electronics")
-- [IRremote.h] (http://www.righto.com/2009/08/multi-protocol-infrared-remote-library.html "Ken Shirriff")
+* [DS3231.h](http://www.rinkydinkelectronics.com/library.php?id=73 "Rinky Dink Electronics")
+- [IRremote.h](http://www.righto.com/2009/08/multi-protocol-infrared-remote-library.html "Ken Shirriff")
 
 El Psy Congroo
 
