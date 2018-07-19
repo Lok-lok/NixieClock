@@ -1,4 +1,5 @@
 # Nixie Clock
+![][/img/nixie_clock.png]
 ## English
 A nixie clock inspired by the divergence meter in Steins;Gate, an anime with quite a lot of old school electronics serving as critical objects to the plots. Nixie clocks also appeared in other creations, but few people use them for actual purpose nowadays. They requires power supply with high voltage, as well as relatively more space for a single digit. However, people tend to define objects which do not think about these vacuum tubes with their own feelings. They just look pretty cool. :)
 
