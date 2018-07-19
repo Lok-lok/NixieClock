@@ -9,8 +9,8 @@ Other modules used include a real time clock module, which provides the time for
 The execution provides several modes of display, including current time, current date, flush (prevention of cathode poisoning), divergence of world line (a definition from Steins;Gate), temperature, location, et cetera.
 
 This repo includes the source files, and a schematic diagram of the digital circuit of the display module. External header files used:
-    DS3231.h http://www.rinkydinkelectronics.com/library.php?id=73
-    IRremote.h http://www.righto.com/2009/08/multi-protocol-infrared-remote-library.html
+* [DS3231.h] (http://www.rinkydinkelectronics.com/library.php?id=73 "Rinky Dink Electronics")
+- [IRremote.h] (http://www.righto.com/2009/08/multi-protocol-infrared-remote-library.html "Ken Shirriff")
 
 El Psy Congroo
 
