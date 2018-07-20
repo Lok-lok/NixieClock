@@ -91,6 +91,17 @@ void random_world_line_divergence_display(){
     tubes.all_display(contents);
 }
 
+TimeAndDate get_TimeAndDate_from_DS_time(Time DS_time){
+  TimeAndDate time_and_date;
+  time_and_date.hour = DS_time.hour;
+  time_and_date.minute = DS_time.min;
+  time_and_date.second = DS_time.sec;
+  time_and_date.day = DS_time.date;
+  time_and_date.month = DS_time.mon;
+  time_and_date.year = DS_time.year % 100;
+  return time_and_date;
+}
+
 void updateStatusFromIR(){
   if (ir.decode(&results)){
     uint32_t result = results.value;
@@ -144,11 +155,7 @@ void loop() {
     }  
     case CLOCK_TIME:
     {
-      Time DS_time = rtc.getTime();
-      TimeAndDate time;
-      time.hour = DS_time.hour;
-      time.minute = DS_time.min;
-      time.second = DS_time.sec;
+      TimeAndDate time = get_TimeAndDate_from_DS_time(rtc.getTime());
       tubes.time_display(time);
       delay(100);
       break;
@@ -160,11 +167,7 @@ void loop() {
     }
     case CLOCK_DATE:
     {
-      Time DS_time = rtc.getTime();
-      TimeAndDate date;
-      date.day = DS_time.date;
-      date.month = DS_time.mon;
-      date.year = DS_time.year % 100;
+      TimeAndDate date = get_TimeAndDate_from_DS_time(rtc.getTime());
       tubes.date_display(date);
       delay(100);
       break;
