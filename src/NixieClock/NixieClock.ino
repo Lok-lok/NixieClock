@@ -33,6 +33,7 @@ uint8_t DISPLAY_DIGIT_PIN[] = {10, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 // GPS parameter
 #define GPS_TXD 11
 #define GPS_RXD 12
+#define TIMEZONE 0 // Please adjust the timezone when it is during DST
 
 // IR parameter
 #define IR_PIN 10
@@ -162,7 +163,11 @@ void loop() {
     }
     case GPS_TIME:
     {
-      tubes.time_display(gps.getTime());
+      TimeAndDate time = gps.getTime();
+      time.hour += TIMEZONE;
+      if (time.hour >= 24)
+        time.hour -= 24;
+      tubes.time_display(time);
       break;
     }
     case CLOCK_DATE:
