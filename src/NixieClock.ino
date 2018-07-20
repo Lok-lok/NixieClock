@@ -22,16 +22,20 @@ enum Status{
   HOLD,
 };
 
+// Display parameter
+uint8_t DISPLAY_TUBE_PIN[] = {3, 4, 5};
+uint8_t DISPLAY_DATA_PIN[] = {6, 7, 8, 9};
+uint8_t DISPLAY_DIGIT_PIN[] = {10, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+#define DISPLAY_EN 2
+#define DISPLAY_LEFT_COMMA_INDEX 0
+#define DISPLAY_RIGHT_COMMA_INDEX 11
+
 // GPS parameter
-uint8_t GPS_TUBE_PIN[] = {3, 4, 5};
-uint8_t GPS_DATA_PIN[] = {6, 7, 8, 9};
-uint8_t GPS_DIGIT_PIN[] = {10, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-#define GPS_EN 2
-#define GPS_LEFT_COMMA_INDEX 0
-#define GPS_RIGHT_COMMA_INDEX 11
+#define GPS_TXD 11
+#define GPS_RXD 12
 
 // IR parameter
-#define IR_PIN 13
+#define IR_PIN 10
 #define CLOCK_TIME_SIGNAL_ONE 0xE318261B
 #define CLOCK_TIME_SIGNAL_TWO 0xFFA25D
 #define GPS_TIME_SIGNAL_ONE 0x511DBB
@@ -52,9 +56,9 @@ uint8_t GPS_DIGIT_PIN[] = {10, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 #define INITIAL_SIGNAL_TWO 0xFF6897
 
 // Initialization
-NixieTubeComplexOfEight tubes(GPS_EN, GPS_TUBE_PIN, GPS_DATA_PIN, GPS_DIGIT_PIN, GPS_LEFT_COMMA_INDEX, GPS_RIGHT_COMMA_INDEX);
+NixieTubeComplexOfEight tubes(DISPLAY_EN, DISPLAY_TUBE_PIN, DISPLAY_DATA_PIN, DISPLAY_DIGIT_PIN, DISPLAY_LEFT_COMMA_INDEX, DISPLAY_RIGHT_COMMA_INDEX);
 DS3231  rtc(SDA, SCL); //A4, A5 for UNO
-GPS gps(11, 12);
+GPS gps(GPS_TXD, GPS_RXD);
 IRrecv ir(IR_PIN); 
 decode_results results;
 
