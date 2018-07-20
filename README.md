@@ -13,6 +13,8 @@ This repo includes the source files, and a schematic diagram of the digital circ
 * [DS3231.h](http://www.rinkydinkelectronics.com/library.php?id=73 "Rinky Dink Electronics")
 - [IRremote.h](http://www.righto.com/2009/08/multi-protocol-infrared-remote-library.html "Ken Shirriff")
 
+Special thanks to my friend [Dantemiwa](https://github.com/Dantemiwa), and my family member for their professional suggestions regarding to circuit and PCB design.
+
 El Psy Congroo
 
 ## 中文 (Chinese)
@@ -25,6 +27,8 @@ El Psy Congroo
 運行提供顯示模式包括，當下時間與日期，冲洗（防止陰極中毒），世界綫變動率（命運石之門中的定義），溫度，地理位置等等。
 
 本倉庫包括源文件，以及顯示模組之電路原理圖。
+
+特別鳴謝我的朋友[Dantemiwa](https://github.com/Dantemiwa "廖chan")，與我的家人給出他們在電路及PCB設計上的專業意見。
 
 El Psy Congroo
 
@@ -40,5 +44,7 @@ El Psy Congroo
 プログラムのデイスプレイモードは時間や日付やフラッシュ（カソード中毒の予防）や世界線変動率（シュタインズ・ゲートより）や温度や経緯度やエトセトラ。
 
 このレポジトリーにはソースファイルとデイスプレイモジュールの回路図がある。
+
+サーキットとプリント基板の設計について提案するわが友の[Dantemiwa](https://github.com/Dantemiwa "廖ちゃん")と家族のメンバーへ　感謝する。
 
 エル・プサイ・コングルゥ
