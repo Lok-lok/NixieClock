@@ -20,7 +20,7 @@ uint8_t DISPLAY_DIGIT_PIN[] = {10, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 #define DISPLAY_LEFT_COMMA_INDEX 0
 #define DISPLAY_RIGHT_COMMA_INDEX 11
 
-#define TZ 8 // Please adjust the timezone when it is during DST
+#define TZ 0 // Please adjust the timezone when it is during DST
 
 GPS gps(TXD, RXD);
 NixieTubeComplexOfEight tubes(DISPLAY_EN, DISPLAY_TUBE_PIN, DISPLAY_DATA_PIN, DISPLAY_DIGIT_PIN, DISPLAY_LEFT_COMMA_INDEX, DISPLAY_RIGHT_COMMA_INDEX);
