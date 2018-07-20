@@ -117,12 +117,12 @@ void setup() {
   int i;
   lasting_status = current_status = INITIAL;
   randomSeed(analogRead(A0));
-  for (i = 0; i < 8; i++) tubes.tube_display(' ', i); // flush
+  tubes.all_off();; // flush
   delay(100);
   for (i = 0; i < 8; i++) tubes.tube_display(',', i);
   rtc.begin();
   ir.enableIRIn();
-  for (i = 0; i < 8; i++) tubes.tube_display(' ', i);
+  tubes.all_off();;
 }
 
 void loop() {
