@@ -4,6 +4,9 @@
 #include <IRremote.h> 
 
 #define MAX_WORLD_LINE_DIVERGENCE 2
+#define WORLD_LINE_DIVERGENCE_FLASHING_TIME 1000
+#define RANDOM_CONTENTS_FLASHING_TIME 3000
+#define FLASHING_TIME_GAP 10
 
 // define status
 enum Status{
@@ -170,9 +173,9 @@ void loop() {
     case WORLD_LINE_DIVERGENCE:
     {
       int i;
-      for (i = 0; i < 300; i++){
+      for (i = 0; i < WORLD_LINE_DIVERGENCE_FLASHING_TIME / FLASHING_TIME_GAP; i++){
         random_world_line_divergence_display();
-        delay(10);
+        delay(FLASHING_TIME_GAP);
       }
       current_status = lasting_status = INITIAL;
       break;
@@ -180,9 +183,9 @@ void loop() {
     case FLUSH:
     {
       int i;
-      for (i = 0; i < 300; i++){
+      for (i = 0; i < RANDOM_CONTENTS_FLASHING_TIME / FLASHING_TIME_GAP; i++){
         random_display();
-        delay(10);
+        delay(FLASHING_TIME_GAP);
       }
       current_status = lasting_status;
       break;
@@ -190,9 +193,9 @@ void loop() {
     case STEINS_GATE_DIVERGENCE:
     {
       int i;
-      for (i = 0; i < 300; i++){
+      for (i = 0; i < WORLD_LINE_DIVERGENCE_FLASHING_TIME / FLASHING_TIME_GAP; i++){
         random_world_line_divergence_display();
-        delay(10);
+        delay(FLASHING_TIME_GAP);
       }
       char contents[8] = {'1', '.', '0', '4', '8', '5', '9', '6'};
       tubes.all_display(contents);
