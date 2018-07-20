@@ -19,6 +19,7 @@ enum Status{
   WORLD_LINE_DIVERGENCE,
   FLUSH,
   STEINS_GATE_DIVERGENCE,
+  HOLD,
 };
 
 // GPS parameter
@@ -47,6 +48,8 @@ uint8_t GPS_DIGIT_PIN[] = {10, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 #define FLUSH_SIGNAL_TWO 0xFFE01F
 #define STEINS_GATE_DIVERGENCE_SIGNAL_ONE 0x488F3CBB
 #define STEINS_GATE_DIVERGENCE_SIGNAL_TWO 0xFF38C7
+#define INITIAL_SIGNAL_ONE 0xC101E57B
+#define INITIAL_SIGNAL_TWO 0xFF6897
 
 // Initialization
 NixieTubeComplexOfEight tubes(GPS_EN, GPS_TUBE_PIN, GPS_DATA_PIN, GPS_DIGIT_PIN, GPS_LEFT_COMMA_INDEX, GPS_RIGHT_COMMA_INDEX);
@@ -110,6 +113,8 @@ void updateStatusFromIR(){
       current_status = FLUSH;
     else if (result == STEINS_GATE_DIVERGENCE_SIGNAL_TWO || result == STEINS_GATE_DIVERGENCE_SIGNAL_TWO)
       current_status = STEINS_GATE_DIVERGENCE;
+    else if (result == INITIAL_SIGNAL_ONE || result == INITIAL_SIGNAL_TWO)
+      lasting_status = current_status = INITIAL;
   }
 }
 
@@ -117,18 +122,19 @@ void setup() {
   int i;
   lasting_status = current_status = INITIAL;
   randomSeed(analogRead(A0));
-  tubes.all_off();; // flush
+  tubes.all_off(); // flush
   delay(100);
   for (i = 0; i < 8; i++) tubes.tube_display(',', i);
   rtc.begin();
   ir.enableIRIn();
-  tubes.all_off();;
+  tubes.all_off();
 }
 
 void loop() {
   switch (current_status){
     case INITIAL:
     {
+      tubes.all_off();
       delay(100);
       break;
     }  
@@ -177,7 +183,7 @@ void loop() {
         random_world_line_divergence_display();
         delay(FLASHING_TIME_GAP);
       }
-      current_status = lasting_status = INITIAL;
+      current_status = HOLD;
       break;
     }
     case FLUSH:
@@ -199,7 +205,12 @@ void loop() {
       }
       char contents[8] = {'1', '.', '0', '4', '8', '5', '9', '6'};
       tubes.all_display(contents);
-      current_status = lasting_status = INITIAL;
+      current_status = HOLD;
+      break;
+    }
+    case HOLD:
+    {
+      delay(100);
       break;
     }
   }
