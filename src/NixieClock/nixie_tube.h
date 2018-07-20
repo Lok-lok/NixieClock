@@ -40,6 +40,7 @@ class NixieTubeComplexOfEight{
         void tube_off(uint8_t tube);
         
         void all_display(char contents[EIGHT]);
+        void all_display(char content);
         void all_off();
         
         void time_display(TimeAndDate time);

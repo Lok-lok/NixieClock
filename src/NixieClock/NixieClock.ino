@@ -139,7 +139,7 @@ void setup() {
   randomSeed(analogRead(A0));
   tubes.all_off(); // flush
   delay(100);
-  for (i = 0; i < 8; i++) tubes.tube_display(',', i);
+  tubes.all_display(',');
   rtc.begin();
   ir.enableIRIn();
   tubes.all_off();
@@ -223,3 +223,4 @@ void loop() {
   }
   updateStatusFromIR();
 }
+

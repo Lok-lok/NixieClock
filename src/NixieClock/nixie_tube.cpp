@@ -140,6 +140,12 @@ void NixieTubeComplexOfEight::all_display(char contents[EIGHT]){
         tube_display(contents[i], 7 - i); // reverse indices
 }
 
+void NixieTubeComplexOfEight::all_display(char content){
+    int i;
+    for (i = 0; i < EIGHT; i++)
+        tube_display(content, i);
+}
+
 void NixieTubeComplexOfEight::all_off(){
     int i;
     for (i = 0; i < EIGHT; i++){
