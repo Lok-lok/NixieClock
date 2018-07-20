@@ -144,11 +144,11 @@ void loop() {
     }  
     case CLOCK_TIME:
     {
-      char* time_chars = rtc.getTimeStr();
+      Time DS_time = rtc.getTime();
       TimeAndDate time;
-      time.hour = (time_chars[0] - 48) * 10 + (time_chars[1] - 48);
-      time.minute = (time_chars[3] - 48) * 10 + (time_chars[4] - 48);
-      time.second = (time_chars[6] - 48) * 10 + (time_chars[7] - 48);
+      time.hour = DS_time.hour;
+      time.minute = DS_time.min;
+      time.second = DS_time.sec;
       tubes.time_display(time);
       delay(100);
       break;
@@ -160,11 +160,11 @@ void loop() {
     }
     case CLOCK_DATE:
     {
-      char* time_chars = rtc.getDateStr();
+      Time DS_time = rtc.getTime();
       TimeAndDate date;
-      date.day = (time_chars[0] - 48) * 10 + (time_chars[1] - 48);
-      date.month = (time_chars[3] - 48) * 10 + (time_chars[4] - 48);
-      date.year = (time_chars[8] - 48) * 10 + (time_chars[9] - 48);
+      date.day = DS_time.date;
+      date.month = DS_time.mon;
+      date.year = DS_time.year % 100;
       tubes.date_display(date);
       delay(100);
       break;
