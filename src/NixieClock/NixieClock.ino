@@ -140,7 +140,7 @@ void setup() {
   randomSeed(analogRead(A0));
   tubes.all_off(); // flush
   delay(100);
-  tubes.all_display(',');
+  tubes.all_display(LEFT_COMMA);
   rtc.begin();
   ir.enableIRIn();
   tubes.all_off();
